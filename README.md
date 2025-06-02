@@ -1,1 +1,3 @@
-# chatgpt-prompting-journey
+# ChatGPT Prompting Journey
+
+[![MIT License](https://img.shields.io/github/license/shroomtop/chatgpt-prompting-journey?color=blue)](LICENSE)...
