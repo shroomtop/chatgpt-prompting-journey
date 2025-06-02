@@ -1,0 +1,677 @@
+<!--LEGAL-DNA:{"jurisdiction":"US/MN/Baxter","export_tag":"EAR99","spdx":"MIT","artifact_time":1748855876491,"def_pub":"OIN","consent_req":true,"city":"Baxter"}-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT Prompting Journey Infographic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .decision-point::before {
+            content: '决策'; /* Decision in Chinese, using a placeholder, can be changed to an icon or English text */
+            content: 'CHOICE';
+            font-size: 0.7rem;
+            font-weight: bold;
+            color: white;
+            background-color: #fb923c; /* orange-400 */
+            padding: 0.1rem 0.4rem;
+            border-radius: 0.25rem;
+            margin-right: 0.5rem;
+            text-transform: uppercase;
+        }
+        .stage-title {
+            scroll-margin-top: 20px; /* Offset for sticky header if any, or just for better linking */
+        }
+        .card {
+            background-color: white;
+            border-left-width: 4px;
+        }
+        .card-connector {
+            position: relative;
+            padding-left: 20px; /* Space for the line */
+            margin-bottom: 1rem;
+        }
+        .card-connector::before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 20px; /* Adjust to align with text */
+            bottom: -10px; /* Extend below the card if it's not the last one */
+            width: 2px;
+            background-color: #cbd5e1; /* slate-300 */
+        }
+        .last-card-in-group .card-connector::before {
+            bottom: auto; /* Don't extend line for the last card */
+            height: calc(100% - 30px); /* Or adjust to content */
+        }
+
+        /* Custom arrow, simple one */
+        .flow-arrow {
+            display: inline-block;
+            margin: 0 0.25rem;
+            color: #64748b; /* slate-500 */
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 p-4 md:p-8">
+    <div class="container mx-auto max-w-5xl">
+
+        <header class="text-center mb-12 py-8">
+            <h1 class="text-5xl font-bold text-sky-700">The ChatGPT Prompting Journey</h1>
+            <p class="text-xl text-slate-600 mt-2">From Novice to Recursive Architect</p>
+        </header>
+
+        <nav class="mb-12 bg-white p-4 rounded-lg shadow-md sticky top-0 z-50">
+            <ul class="flex flex-wrap justify-center gap-2 md:gap-4">
+                <li><a href="#stage-0-discovery" class="text-sky-600 hover:text-sky-800 font-medium">🚀 Discovery</a></li>
+                <li><a href="#stage-1-novice" class="text-emerald-600 hover:text-emerald-800 font-medium">🧠 Novice</a></li>
+                <li><a href="#stage-2-poweruser" class="text-amber-600 hover:text-amber-800 font-medium">🛠️ Power User</a></li>
+                <li><a href="#stage-3-advanced" class="text-orange-600 hover:text-orange-800 font-medium">💡 Advanced</a></li>
+                <li><a href="#stage-4-mastery" class="text-purple-600 hover:text-purple-800 font-medium">👑 Mastery</a></li>
+                <li><a href="#stage-5-omniaware" class="text-teal-600 hover:text-teal-800 font-medium">🌐 Omniaware</a></li>
+                <li><a href="#extras" class="text-slate-600 hover:text-slate-800 font-medium">🔄 Extras</a></li>
+                <li><a href="#failure-modes" class="text-red-600 hover:text-red-800 font-medium">⚠️ Failures</a></li>
+            </ul>
+        </nav>
+
+        <section id="stage-0-discovery" class="mb-16 p-6 bg-sky-50 rounded-xl shadow-xl border-t-4 border-sky-500">
+            <h2 class="stage-title text-3xl font-semibold text-sky-700 mb-8 pb-2 border-b-2 border-sky-200">0. 🚀 Entry & Discovery</h2>
+            <div class="space-y-6">
+                <div class="card border-sky-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-sky-600 mb-1">A: 🚀 User Discovers ChatGPT</h4>
+                    <p class="text-slate-700">The journey begins with the user finding out about ChatGPT.</p>
+                    <p class="mt-2 text-sm text-sky-500">➡️ Leads to: <a href="#node-B" class="underline">B (Initial Usage Mode)</a></p>
+                </div>
+
+                <div id="node-B" class="card border-sky-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-sky-600 mb-1"><span class="decision-point"></span>B: 🔍 Initial Usage Mode</h4>
+                    <p class="text-slate-700">User decides how they'll initially engage with the tool.</p>
+                    <ul class="mt-2 list-disc list-inside text-sm text-sky-500 space-y-1">
+                        <li>If "Casual / Curiosity" <span class="flow-arrow">➔</span> <a href="#node-C" class="underline">C (Prompt w/ Basic Questions)</a></li>
+                        <li>If "Task-Oriented" <span class="flow-arrow">➔</span> <a href="#node-D" class="underline">D (Request Help w/ Real Task)</a></li>
+                        <li>If "Heard via Community" <span class="flow-arrow">➔</span> <a href="#node-E" class="underline">E (Discover Prompting Communities)</a></li>
+                    </ul>
+                </div>
+
+                <div id="node-C" class="card border-sky-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-sky-600 mb-1">C: 💬 Prompt w/ Basic Questions</h4>
+                    <p class="text-slate-700">User starts by asking simple questions out of curiosity.</p>
+                    <p class="mt-2 text-sm text-sky-500">➡️ Leads to: <a href="#node-G" class="underline">G (Learn Prompt-Response Basics)</a></p>
+                </div>
+
+                <div id="node-D" class="card border-sky-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-sky-600 mb-1">D: 🛠️ Request Help w/ Real Task</h4>
+                    <p class="text-slate-700">User tries to get assistance with a specific, real-world task.</p>
+                    <p class="mt-2 text-sm text-sky-500">➡️ Leads to: <a href="#node-G" class="underline">G (Learn Prompt-Response Basics)</a></p>
+                </div>
+
+                <div id="node-E" class="card border-sky-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-sky-600 mb-1">E: 🌐 Discover Prompting Communities</h4>
+                    <p class="text-slate-700">User finds online communities focused on ChatGPT and prompting.</p>
+                    <p class="mt-2 text-sm text-sky-500">➡️ Leads to: <a href="#node-F" class="underline">F (Observe Sample Interactions)</a></p>
+                </div>
+
+                <div id="node-F" class="card border-sky-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-sky-600 mb-1">F: 🔎 Observe Sample Interactions</h4>
+                    <p class="text-slate-700">User learns by observing how others interact with ChatGPT.</p>
+                    <p class="mt-2 text-sm text-sky-500">➡️ Leads to: <a href="#node-C" class="underline">C (Prompt w/ Basic Questions)</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="stage-1-novice" class="mb-16 p-6 bg-emerald-50 rounded-xl shadow-xl border-t-4 border-emerald-500">
+            <h2 class="stage-title text-3xl font-semibold text-emerald-700 mb-8 pb-2 border-b-2 border-emerald-200">1. 🧠 Novice Initiation</h2>
+            <div class="space-y-6">
+                <div id="node-G" class="card border-emerald-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-emerald-600 mb-1">G: 🧠 Learn Prompt-Response Basics</h4>
+                    <p class="text-slate-700">User begins to understand the fundamental mechanics of how prompts elicit responses.</p>
+                    <p class="mt-2 text-sm text-emerald-500">➡️ Leads to: <a href="#node-H" class="underline">H (Experiment: Rephrase, Retry, Tweak)</a></p>
+                </div>
+
+                <div id="node-H" class="card border-emerald-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-emerald-600 mb-1">H: 🔄 Experiment: Rephrase, Retry, Tweak</h4>
+                    <p class="text-slate-700">User actively experiments by changing prompts to see different outcomes. This is an iterative loop.</p>
+                    <p class="mt-2 text-sm text-emerald-500">🔁 Experimentation Loop: Returns to H if not satisfied.</p>
+                    <p class="mt-1 text-sm text-emerald-500">➡️ Leads to: <a href="#node-I" class="underline">I (Satisfied?)</a></p>
+                </div>
+
+                <div id="node-I" class="card border-emerald-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-emerald-600 mb-1"><span class="decision-point"></span>I: ⚖️ Satisfied?</h4>
+                    <p class="text-slate-700">User evaluates if the current results meet their needs.</p>
+                    <ul class="mt-2 list-disc list-inside text-sm text-emerald-500 space-y-1">
+                        <li>If "No" <span class="flow-arrow">➔</span> <a href="#node-H" class="underline">H (Experiment: Rephrase, Retry, Tweak)</a></li>
+                        <li>If "Yes" <span class="flow-arrow">➔</span> <a href="#node-J" class="underline">J (Explore Prompt Templates & Examples)</a></li>
+                    </ul>
+                </div>
+
+                <div id="node-J" class="card border-emerald-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-emerald-600 mb-1">J: 📋 Explore Prompt Templates & Examples</h4>
+                    <p class="text-slate-700">User seeks out established prompt structures and examples to improve their results.</p>
+                    <p class="mt-2 text-sm text-emerald-500">➡️ Leads to: <a href="#node-K" class="underline">K (Read Help, Docs, or Tutorials)</a></p>
+                </div>
+
+                <div id="node-K" class="card border-emerald-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-emerald-600 mb-1">K: 📖 Read Help, Docs, or Tutorials</h4>
+                    <p class="text-slate-700">User consults official documentation, guides, or tutorials to deepen understanding.</p>
+                    <p class="mt-2 text-sm text-emerald-500">➡️ Leads to: <a href="#node-L" class="underline">L (Notice Model Limits?)</a></p>
+                </div>
+
+                <div id="node-L" class="card border-emerald-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-emerald-600 mb-1"><span class="decision-point"></span>L: 🚧 Notice Model Limits?</h4>
+                    <p class="text-slate-700">User starts to perceive the boundaries and limitations of the model.</p>
+                    <ul class="mt-2 list-disc list-inside text-sm text-emerald-500 space-y-1">
+                        <li>If "Yes" <span class="flow-arrow">➔</span> <a href="#node-M" class="underline">M (Recognize Boundaries & Capabilities)</a></li>
+                        <li>If "No" <span class="flow-arrow">➔</span> <a href="#node-K" class="underline">K (Read Help, Docs, or Tutorials)</a></li>
+                        <li>Path to Stagnation: Can lead to <a href="#node-BP" class="underline text-red-500">BP (Stagnate/Churn)</a> if user gives up.</li>
+                    </ul>
+                </div>
+
+                <div id="node-M" class="card border-emerald-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-emerald-600 mb-1">M: ⚠️ Recognize Boundaries & Capabilities</h4>
+                    <p class="text-slate-700">User develops a clearer understanding of what the model can and cannot do reliably.</p>
+                    <p class="mt-2 text-sm text-emerald-500">➡️ Leads to: <a href="#node-N" class="underline">N (Adopt Structured Prompt Syntax)</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="stage-2-poweruser" class="mb-16 p-6 bg-amber-50 rounded-xl shadow-xl border-t-4 border-amber-500">
+            <h2 class="stage-title text-3xl font-semibold text-amber-700 mb-8 pb-2 border-b-2 border-amber-200">2. 🛠️ Power User Foundation</h2>
+            <div class="space-y-6">
+                <div id="node-N" class="card border-amber-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-amber-600 mb-1">N: 📐 Adopt Structured Prompt Syntax</h4>
+                    <p class="text-slate-700">User begins to use more formal and structured ways of writing prompts.</p>
+                    <p class="mt-2 text-sm text-amber-500">➡️ Leads to: <a href="#node-O" class="underline">O (Learn System/Instruction Prompts)</a></p>
+                </div>
+                <div id="node-O" class="card border-amber-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-amber-600 mb-1">O: ⚡ Learn System/Instruction Prompts</h4>
+                    <p class="text-slate-700">User learns about providing context, roles, and constraints via system messages or explicit instructions.</p>
+                    <p class="mt-2 text-sm text-amber-500">➡️ Leads to: <a href="#node-P" class="underline">P (Use "Act as", rules, goals)</a></p>
+                </div>
+                <div id="node-P" class="card border-amber-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-amber-600 mb-1">P: 📜 Use "Act as", rules, goals, meta-instructions</h4>
+                    <p class="text-slate-700">User employs techniques like role-playing ("Act as a..."), defining rules, setting goals, and giving meta-instructions.</p>
+                    <p class="mt-2 text-sm text-amber-500">➡️ Leads to: <a href="#node-Q" class="underline">Q (Organize Prompt Libraries)</a></p>
+                </div>
+                <div id="node-Q" class="card border-amber-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-amber-600 mb-1">Q: 🗂️ Organize Prompt Libraries</h4>
+                    <p class="text-slate-700">User starts curating and organizing their effective prompts for reuse.</p>
+                    <p class="mt-2 text-sm text-amber-500">➡️ Leads to: <a href="#node-R" class="underline">R (Chain Multi-Step Tasks)</a></p>
+                    <p class="mt-1 text-xs text-red-500">Potential Risks: <a href="#CTX1" class="underline">Context Transfer Failure (CTX1)</a>, <a href="#LB1" class="underline">Latent Bleed (LB1)</a>, <a href="#ME1" class="underline">No Explicit Metrics (ME1)</a>.</p>
+                </div>
+                <div id="node-R" class="card border-amber-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-amber-600 mb-1">R: 🔗 Chain Multi-Step Tasks / Output → Input</h4>
+                    <p class="text-slate-700">User breaks down complex tasks into sequential prompts, using output from one step as input for the next.</p>
+                    <p class="mt-2 text-sm text-amber-500">➡️ Leads to: <a href="#node-S" class="underline">S (Realize Prompt Engineering is a Skill)</a></p>
+                </div>
+                <div id="node-S" class="card border-amber-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-amber-600 mb-1">S: 🧩 Realize Prompt Engineering is a Skill</h4>
+                    <p class="text-slate-700">User recognizes that crafting effective prompts is a distinct and valuable skill.</p>
+                    <p class="mt-2 text-sm text-amber-500">➡️ Leads to: <a href="#node-T" class="underline">T (Study Community-Shared Prompts)</a></p>
+                </div>
+                <div id="node-T" class="card border-amber-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-amber-600 mb-1">T: 💡 Study Community-Shared Prompts/Meta-Prompts</h4>
+                    <p class="text-slate-700">User actively learns from advanced prompts and meta-prompting techniques shared by the community.</p>
+                    <p class="mt-2 text-sm text-amber-500">➡️ Leads to: <a href="#node-U" class="underline">U (Use External Tools?)</a></p>
+                </div>
+                <div id="node-U" class="card border-amber-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-amber-600 mb-1"><span class="decision-point"></span>U: 🧰 Use External Tools?</h4>
+                    <p class="text-slate-700">User considers integrating external tools, files, or advanced functionalities like Code Interpreter.</p>
+                    <ul class="mt-2 list-disc list-inside text-sm text-amber-500 space-y-1">
+                        <li>If "No" <span class="flow-arrow">➔</span> <a href="#node-V" class="underline">V (Hit Capabilities Ceiling)</a></li>
+                        <li>If "Yes" <span class="flow-arrow">➔</span> <a href="#node-W" class="underline">W (Integrate Files, Plugins, Code Interpreter)</a></li>
+                    </ul>
+                </div>
+                <div id="node-V" class="card border-amber-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-amber-600 mb-1">V: ⏳ Hit Capabilities Ceiling</h4>
+                    <p class="text-slate-700">Without external tools or further advancement, user may feel they've reached the limits of basic prompting.</p>
+                    <ul class="mt-2 list-disc list-inside text-sm text-amber-500 space-y-1">
+                        <li>Option: 🔁 <a href="#node-H" class="underline">Retry Prompts (H)</a></li>
+                        <li>Option: "Try Plugins" <span class="flow-arrow">➔</span> <a href="#node-W" class="underline">W (Integrate Files, Plugins, Code Interpreter)</a></li>
+                        <li>Risk: Can lead to <a href="#CTX5" class="underline text-red-500">CTX5 (Accumulating Drift/Error)</a> or <a href="#HM5" class="underline text-red-500">HM5 (Propagate Invalid Result)</a> if issues are ignored.</li>
+                    </ul>
+                </div>
+                <div id="node-W" class="card border-amber-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-amber-600 mb-1">W: 📁 Integrate Files, Plugins, Code Interpreter</h4>
+                    <p class="text-slate-700">User starts using plugins, uploading files, or leveraging Code Interpreter for more complex tasks.</p>
+                    <p class="mt-2 text-sm text-amber-500">➡️ Leads to: <a href="#node-X" class="underline">X (Automate Data/Workflow Integration)</a></p>
+                    <p class="mt-1 text-xs text-red-500">Potential Risk: <a href="#TE1" class="underline">Token Usage Spike/Latency (TE1)</a>.</p>
+                </div>
+                <div id="node-X" class="card border-amber-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-amber-600 mb-1">X: 🛠️ Automate Data/Workflow Integration</h4>
+                    <p class="text-slate-700">User looks for ways to automate the integration of data and workflows with ChatGPT.</p>
+                    <p class="mt-2 text-sm text-amber-500">➡️ Leads to: <a href="#node-Y" class="underline">Y (Debug Output, Validate Model Reasoning)</a> (Advanced Stage)</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="stage-3-advanced" class="mb-16 p-6 bg-orange-50 rounded-xl shadow-xl border-t-4 border-orange-500">
+            <h2 class="stage-title text-3xl font-semibold text-orange-700 mb-8 pb-2 border-b-2 border-orange-200">3. 💡 Advanced & Power User Divergence</h2>
+            <div class="space-y-6">
+                <div id="node-Y" class="card border-orange-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-orange-600 mb-1">Y: 🔎 Debug Output, Validate Model Reasoning</h4>
+                    <p class="text-slate-700">User critically examines outputs, attempts to understand the model's reasoning, and debugs unexpected results.</p>
+                    <p class="mt-2 text-sm text-orange-500">➡️ Leads to: <a href="#node-Z" class="underline">Z (Analyze Output Bias/Error)</a></p>
+                    <p class="mt-1 text-xs text-red-500">Related to: <a href="#HM4" class="underline">HM4 (Sanitize/Filter Output)</a>.</p>
+                </div>
+                <div id="node-Z" class="card border-orange-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-orange-600 mb-1">Z: 📊 Analyze Output Bias/Error</h4>
+                    <p class="text-slate-700">User becomes aware of and analyzes potential biases or systematic errors in model outputs.</p>
+                    <p class="mt-2 text-sm text-orange-500">➡️ Leads to: <a href="#node-AA" class="underline">AA (Perform Side-by-Side Model Testing)</a></p>
+                    <p class="mt-1 text-xs text-red-500">Potential Risk: <a href="#HM1" class="underline">Hallucination Suspected (HM1)</a>.</p>
+                </div>
+                <div id="node-AA" class="card border-orange-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-orange-600 mb-1">AA: 🧪 Perform Side-by-Side Model Testing</h4>
+                    <p class="text-slate-700">User compares outputs from different models or different prompting strategies for the same task.</p>
+                    <p class="mt-2 text-sm text-orange-500">➡️ Leads to: <a href="#node-AB" class="underline">AB (Want More Control?)</a></p>
+                </div>
+                <div id="node-AB" class="card border-orange-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-orange-600 mb-1"><span class="decision-point"></span>AB: 🕹️ Want More Control?</h4>
+                    <p class="text-slate-700">User desires deeper control over the model's behavior and integration capabilities.</p>
+                    <ul class="mt-2 list-disc list-inside text-sm text-orange-500 space-y-1">
+                        <li>If "Yes" <span class="flow-arrow">➔</span> <a href="#node-AC" class="underline">AC (Explore API, SDK, or Automation)</a></li>
+                        </ul>
+                </div>
+                <div id="node-AC" class="card border-orange-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-orange-600 mb-1">AC: 💻 Explore API, SDK, or Automation</h4>
+                    <p class="text-slate-700">User starts exploring programmatic access via APIs, SDKs, or other automation tools.</p>
+                    <p class="mt-2 text-sm text-orange-500">➡️ Leads to: <a href="#node-AD" class="underline">AD (Build ChatGPT-Integrated Apps/Scripts)</a></p>
+                </div>
+                <div id="node-AD" class="card border-orange-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-orange-600 mb-1">AD: 🏗️ Build ChatGPT-Integrated Apps/Scripts</h4>
+                    <p class="text-slate-700">User begins developing custom applications or scripts that leverage ChatGPT's capabilities.</p>
+                    <p class="mt-2 text-sm text-orange-500">➡️ Leads to: <a href="#node-AE" class="underline">AE (Connect LLMs w/ External APIs/Data)</a></p>
+                </div>
+                <div id="node-AE" class="card border-orange-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-orange-600 mb-1">AE: 🕸️ Connect LLMs w/ External APIs/Data</h4>
+                    <p class="text-slate-700">User integrates LLMs with other APIs and external data sources to create more powerful solutions.</p>
+                    <p class="mt-2 text-sm text-orange-500">➡️ Leads to: <a href="#node-AF" class="underline">AF (Test Prompt Security)</a></p>
+                </div>
+                 <div id="node-AF" class="card border-orange-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-orange-600 mb-1">AF: 🔬 Test Prompt Security (Jailbreaks, Adversarial Prompts)</h4>
+                    <p class="text-slate-700">User investigates prompt security, including jailbreaking attempts and adversarial prompting techniques.</p>
+                    <p class="mt-2 text-sm text-orange-500">➡️ Leads to: <a href="#node-AG" class="underline">AG (Study Prompt Injection Prevention)</a></p>
+                    <p class="mt-1 text-xs text-red-500">Potential Risks: <a href="#DS1" class="underline">Persistent State Threat (DS1)</a>, <a href="#DS7" class="underline">Prompt-Stuffed Payload Injection (DS7)</a>.</p>
+                </div>
+                <div id="node-AG" class="card border-orange-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-orange-600 mb-1">AG: 🛡️ Study Prompt Injection Prevention</h4>
+                    <p class="text-slate-700">User learns about methods to prevent prompt injection and other security vulnerabilities.</p>
+                    <p class="mt-2 text-sm text-orange-500">➡️ Leads to: <a href="#node-AH" class="underline">AH (Develop Domain-Specific Frameworks)</a></p>
+                </div>
+                <div id="node-AH" class="card border-orange-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-orange-600 mb-1">AH: 🧠 Develop Domain-Specific Frameworks</h4>
+                    <p class="text-slate-700">User creates tailored prompting frameworks or methodologies for specific domains or tasks.</p>
+                    <p class="mt-2 text-sm text-orange-500">➡️ Leads to: <a href="#node-AI" class="underline">AI (Chain Prompts Into Workflows/Agents)</a></p>
+                </div>
+                <div id="node-AI" class="card border-orange-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-orange-600 mb-1">AI: 🦾 Chain Prompts Into Workflows/Agents</h4>
+                    <p class="text-slate-700">User designs complex workflows or simple agents by chaining multiple prompts and logic.</p>
+                    <p class="mt-2 text-sm text-orange-500">➡️ Leads to: <a href="#node-AJ" class="underline">AJ (Implement Feedback, Memory, Re-prompt Loops)</a></p>
+                    <p class="mt-1 text-xs text-red-500">Potential Risks: <a href="#CL1" class="underline">Prompt Complexity Ceiling (CL1)</a>, <a href="#CL4" class="underline">Async Agent Split/Delegation (CL4)</a>.</p>
+                    <p class="mt-1 text-xs text-orange-500">Can also be a point for <a href="#CL3" class="underline text-red-500">CL3 (Delegate/Automate?)</a> decision if complexity becomes too high.</p>
+                </div>
+                <div id="node-AJ" class="card border-orange-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-orange-600 mb-1">AJ: ⚙️ Implement Feedback, Memory, Re-prompt Loops</h4>
+                    <p class="text-slate-700">User builds systems with feedback mechanisms, short-term memory, and automated re-prompting logic.</p>
+                    <p class="mt-2 text-sm text-orange-500">➡️ Leads to: <a href="#node-AK" class="underline">AK (Monetize/Deploy?)</a></p>
+                    <p class="mt-1 text-xs text-red-500">Potential Risks: <a href="#AL1" class="underline">Agent Goal Drift (AL1)</a>, <a href="#VR1" class="underline">Prompt Version Drift (VR1)</a>.</p>
+                </div>
+                <div id="node-AK" class="card border-orange-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-orange-600 mb-1"><span class="decision-point"></span>AK: 💸 Monetize/Deploy?</h4>
+                    <p class="text-slate-700">User considers commercializing their prompt-based solutions or deploying them at scale.</p>
+                    <ul class="mt-2 list-disc list-inside text-sm text-orange-500 space-y-1">
+                        <li>If "No" <span class="flow-arrow">➔</span> Returns to <a href="#node-AJ" class="underline">AJ (Implement Feedback Loops)</a> for further refinement.</li>
+                        <li>If "Yes" <span class="flow-arrow">➔</span> <a href="#node-AL" class="underline">AL (Package, License, or Monetize Prompt Tools)</a></li>
+                        <li>🔁 Recursive Optimization Loop: Can loop back to <a href="#node-Q" class="underline">Q (Organize Prompt Libraries)</a> for refinement.</li>
+                    </ul>
+                </div>
+                <div id="node-AL" class="card border-orange-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-orange-600 mb-1">AL: 🛍️ Package, License, or Monetize Prompt Tools</h4>
+                    <p class="text-slate-700">User prepares their tools/prompts for distribution, licensing, or sale.</p>
+                    <p class="mt-2 text-sm text-orange-500">➡️ Leads to: <a href="#node-AM" class="underline">AM (Setup Payment)</a></p>
+                </div>
+                <div id="node-AM" class="card border-orange-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-orange-600 mb-1">AM: 💰 Setup Payment (Stripe, Gumroad, Sponsors)</h4>
+                    <p class="text-slate-700">User sets up payment processing systems for their monetized offerings.</p>
+                    <p class="mt-2 text-sm text-orange-500">➡️ Leads to: <a href="#node-AN" class="underline">AN (Implement License Validation + DRM)</a></p>
+                </div>
+                <div id="node-AN" class="card border-orange-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-orange-600 mb-1">AN: 🧾 Implement License Validation + DRM</h4>
+                    <p class="text-slate-700">User implements mechanisms for license validation or Digital Rights Management.</p>
+                    <p class="mt-2 text-sm text-orange-500">➡️ Leads to: <a href="#node-AO" class="underline">AO (Publish on Marketplace/Portal)</a></p>
+                </div>
+                <div id="node-AO" class="card border-orange-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-orange-600 mb-1">AO: 🌐 Publish on Marketplace/Portal</h4>
+                    <p class="text-slate-700">User makes their tools or prompts available on marketplaces or dedicated portals.</p>
+                    <p class="mt-2 text-sm text-orange-500">➡️ Leads to: <a href="#node-AP" class="underline">AP (Attack/Stress-Test Own Prompts?)</a></p>
+                </div>
+                <div id="node-AP" class="card border-orange-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-orange-600 mb-1"><span class="decision-point"></span>AP: 🔥 Attack/Stress-Test Own Prompts?</h4>
+                    <p class="text-slate-700">User considers proactively testing their own prompts for vulnerabilities and robustness.</p>
+                     <ul class="mt-2 list-disc list-inside text-sm text-orange-500 space-y-1">
+                        <li>If "Yes" <span class="flow-arrow">➔</span> <a href="#node-AQ" class="underline">AQ (Red Team: Adversarial, Fuzz, Abuse Scenarios)</a></li>
+                        <li>If "No" <span class="flow-arrow">➔</span> <a href="#node-AS" class="underline">AS (Repeat Deployment/Testing)</a></li>
+                    </ul>
+                </div>
+                <div id="node-AQ" class="card border-orange-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-orange-600 mb-1">AQ: 💣 Red Team: Adversarial, Fuzz, Abuse Scenarios</h4>
+                    <p class="text-slate-700">User performs red teaming exercises, including adversarial attacks, fuzzing, and simulating abuse cases.</p>
+                    <p class="mt-2 text-sm text-orange-500">➡️ Leads to: <a href="#node-AR" class="underline">AR (Patch, Harden, Iterate)</a></p>
+                </div>
+                <div id="node-AR" class="card border-orange-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-orange-600 mb-1">AR: 🧨 Patch, Harden, Iterate</h4>
+                    <p class="text-slate-700">User applies patches, hardens their prompts/systems, and iterates based on testing results.</p>
+                    <p class="mt-2 text-sm text-orange-500">➡️ Leads to: <a href="#node-AS" class="underline">AS (Repeat Deployment/Testing)</a></p>
+                    <p class="mt-1 text-xs text-orange-500">Feedback from: <a href="#BC" class="underline">BC (Systematize Prompt Audits)</a> via Red Team Feedback Injection.</p>
+                </div>
+                <div id="node-AS" class="card border-orange-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-orange-600 mb-1">AS: 🔄 Repeat Deployment/Testing</h4>
+                    <p class="text-slate-700">User establishes a cycle of deploying updates and continuously testing their prompt-based systems.</p>
+                    <p class="mt-2 text-sm text-orange-500">➡️ Leads to: <a href="#node-AT" class="underline">AT (Use GPT for Prompt/Agent Generation)</a> (Meta Mastery Stage)</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="stage-4-mastery" class="mb-16 p-6 bg-purple-50 rounded-xl shadow-xl border-t-4 border-purple-500">
+            <h2 class="stage-title text-3xl font-semibold text-purple-700 mb-8 pb-2 border-b-2 border-purple-200">4. 👑 Meta, Agentic, & Architectural Mastery</h2>
+            <div class="space-y-6">
+                <div id="node-AT" class="card border-purple-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-purple-600 mb-1">AT: 🌀 Use GPT for Prompt/Agent Generation (Meta-Prompting)</h4>
+                    <p class="text-slate-700">User leverages GPT itself to generate, refine, or optimize prompts and agentic structures.</p>
+                    <p class="mt-2 text-sm text-purple-500">➡️ Leads to: <a href="#node-AU" class="underline">AU (Recursive Prompt Evolution/Optimization)</a></p>
+                </div>
+                <div id="node-AU" class="card border-purple-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-purple-600 mb-1">AU: 🧬 Recursive Prompt Evolution/Optimization</h4>
+                    <p class="text-slate-700">User develops systems where prompts can evolve or be optimized recursively, potentially by AI.</p>
+                    <p class="mt-2 text-sm text-purple-500">➡️ Leads to: <a href="#node-AV" class="underline">AV (Build Modular, Reusable Prompt Libraries)</a></p>
+                    <p class="mt-1 text-xs text-purple-500">🔁 Recursive Mastery Loop: Can connect from <a href="#node-BD" class="underline">BD (Optimize Workflows)</a> and <a href="#node-BG" class="underline">BG (Recursive Mastery Loop)</a>.</p>
+                </div>
+                <div id="node-AV" class="card border-purple-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-purple-600 mb-1">AV: 🗄️ Build Modular, Reusable Prompt Libraries</h4>
+                    <p class="text-slate-700">User designs and curates highly modular and reusable libraries of prompts or prompt components.</p>
+                    <p class="mt-2 text-sm text-purple-500">➡️ Leads to: <a href="#node-AW" class="underline">AW (Design Plug-n-Play Chains/Composables)</a></p>
+                </div>
+                <div id="node-AW" class="card border-purple-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-purple-600 mb-1">AW: 📦 Design Plug-n-Play Chains/Composables</h4>
+                    <p class="text-slate-700">User creates prompt chains or composable units that can be easily combined and reconfigured.</p>
+                    <p class="mt-2 text-sm text-purple-500">➡️ Leads to: <a href="#node-AX" class="underline">AX (Simulate Multi-Agent/Role-Play Interactions)</a></p>
+                </div>
+                <div id="node-AX" class="card border-purple-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-purple-600 mb-1">AX: 👥 Simulate Multi-Agent/Role-Play Interactions</h4>
+                    <p class="text-slate-700">User designs sophisticated simulations involving multiple AI agents or complex role-playing scenarios.</p>
+                    <p class="mt-2 text-sm text-purple-500">➡️ Leads to: <a href="#node-AY" class="underline">AY (Interop w/ Multiple LLMs)</a></p>
+                </div>
+                <div id="node-AY" class="card border-purple-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-purple-600 mb-1">AY: 🎛️ Interop w/ Multiple LLMs, Compare/Blend Outputs</h4>
+                    <p class="text-slate-700">User works with multiple LLMs, comparing their strengths and potentially blending their outputs for superior results.</p>
+                    <p class="mt-2 text-sm text-purple-500">➡️ Leads to: <a href="#node-AZ" class="underline">AZ (Incorporate Autonomous Systems?)</a></p>
+                </div>
+                <div id="node-AZ" class="card border-purple-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-purple-600 mb-1"><span class="decision-point"></span>AZ: 🤖 Incorporate Autonomous Systems?</h4>
+                    <p class="text-slate-700">User considers building or integrating fully autonomous AI systems or Decentralized Autonomous Organizations (DAOs).</p>
+                    <ul class="mt-2 list-disc list-inside text-sm text-purple-500 space-y-1">
+                        <li>If "Yes" <span class="flow-arrow">➔</span> <a href="#node-BA" class="underline">BA (Build Autonomous GPT Agents/DAOs)</a></li>
+                        <li>If "No" <span class="flow-arrow">➔</span> <a href="#node-BD" class="underline">BD (Optimize, Abstract, Document Workflows)</a></li>
+                    </ul>
+                </div>
+                <div id="node-BA" class="card border-purple-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-purple-600 mb-1">BA: 🤖 Build Autonomous GPT Agents/DAOs</h4>
+                    <p class="text-slate-700">User actively develops autonomous agents or DAOs powered by GPT or similar LLMs.</p>
+                    <p class="mt-2 text-sm text-purple-500">➡️ Leads to: <a href="#node-BB" class="underline">BB (Implement Self-Improving Prompts/Reflexive Loops)</a></p>
+                </div>
+                <div id="node-BB" class="card border-purple-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-purple-600 mb-1">BB: ♻️ Implement Self-Improving Prompts/Reflexive Loops</h4>
+                    <p class="text-slate-700">User designs systems where prompts can self-improve or adapt through reflexive feedback loops.</p>
+                    <p class="mt-2 text-sm text-purple-500">➡️ Leads to: <a href="#node-BC" class="underline">BC (Systematize Prompt Audits, Logging, Analytics)</a></p>
+                </div>
+                <div id="node-BC" class="card border-purple-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-purple-600 mb-1">BC: 🎯 Systematize Prompt Audits, Logging, Analytics</h4>
+                    <p class="text-slate-700">User establishes systematic processes for auditing prompts, logging interactions, and analyzing performance data.</p>
+                    <p class="mt-2 text-sm text-purple-500">➡️ Leads to: <a href="#node-BD" class="underline">BD (Optimize, Abstract, Document Workflows)</a></p>
+                    <p class="mt-1 text-xs text-purple-500">🧨 Red Team Feedback Injection: Feeds into <a href="#node-AR" class="underline text-orange-500">AR (Patch, Harden, Iterate)</a>.</p>
+                </div>
+                <div id="node-BD" class="card border-purple-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-purple-600 mb-1">BD: 📈 Optimize, Abstract, Document Workflows</h4>
+                    <p class="text-slate-700">User focuses on optimizing, abstracting, and thoroughly documenting their advanced prompting workflows.</p>
+                    <p class="mt-2 text-sm text-purple-500">➡️ Leads to: <a href="#node-BE" class="underline">BE (Attain .01% GPT Mastery – Recursive Architect)</a></p>
+                    <p class="mt-1 text-xs text-purple-500">🔁 Recursive Mastery Loop: Can loop back to <a href="#node-AU" class="underline">AU (Recursive Prompt Evolution)</a>.</p>
+                </div>
+                <div id="node-BE" class="card border-purple-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-purple-600 mb-1">BE: 👑 Attain .01% GPT Mastery – Recursive Architect</h4>
+                    <p class="text-slate-700">User reaches a state of profound mastery, capable of architecting recursive and highly sophisticated AI systems.</p>
+                    <p class="mt-2 text-sm text-purple-500">➡️ Leads to: <a href="#node-BF" class="underline">BF (Evolve to Self-Propagating, Monetizing AI Products)</a> and <a href="#node-BH" class="underline">BH (Study Regulatory Vectors)</a> (Omniaware Stage)</p>
+                </div>
+                <div id="node-BF" class="card border-purple-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-purple-600 mb-1">BF: 🦾 Evolve to Self-Propagating, Monetizing AI Products</h4>
+                    <p class="text-slate-700">User's creations potentially evolve into self-propagating or autonomously monetizing AI products.</p>
+                    <p class="mt-2 text-sm text-purple-500">➡️ Leads to: <a href="#node-BG" class="underline">BG (Recursive Mastery Loop)</a></p>
+                    <p class="mt-1 text-xs text-purple-500">Path to Mentorship: Can lead to <a href="#node-BN" class="underline text-teal-500">BN (Mentor Community)</a>.</p>
+                </div>
+                <div id="node-BG" class="card border-purple-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-purple-600 mb-1">BG: 🔁 Recursive Mastery Loop: Back to AU</h4>
+                    <p class="text-slate-700">A continuous loop of mastery, feeding back into recursive prompt evolution and optimization.</p>
+                    <p class="mt-2 text-sm text-purple-500">🔁 Returns to: <a href="#node-AU" class="underline">AU (Recursive Prompt Evolution/Optimization)</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="stage-5-omniaware" class="mb-16 p-6 bg-teal-50 rounded-xl shadow-xl border-t-4 border-teal-500">
+            <h2 class="stage-title text-3xl font-semibold text-teal-700 mb-8 pb-2 border-b-2 border-teal-200">5. 🌐 Omniaware: Compliance, Ecosystem, Red Team</h2>
+            <div class="space-y-6">
+                <div id="node-BH" class="card border-teal-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-teal-600 mb-1">BH: ⚖️ Study Regulatory, Copyright, Legal Vectors</h4>
+                    <p class="text-slate-700">User delves into the complex regulatory, copyright, and legal aspects surrounding AI and LLMs.</p>
+                    <p class="mt-2 text-sm text-teal-500">➡️ Leads to: <a href="#node-BI" class="underline">BI (Track Artifact Lineage)</a></p>
+                </div>
+                <div id="node-BI" class="card border-teal-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-teal-600 mb-1">BI: 📜 Track Artifact Lineage, Signatures, Watermarking</h4>
+                    <p class="text-slate-700">User implements methods for tracking the lineage of AI-generated artifacts, possibly using signatures or watermarking.</p>
+                    <p class="mt-2 text-sm text-teal-500">➡️ Leads to: <a href="#node-BJ" class="underline">BJ (Red Team / Blue Team Full Cycle)</a></p>
+                </div>
+                <div id="node-BJ" class="card border-teal-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-teal-600 mb-1">BJ: 🕵️ Red Team / Blue Team Full Cycle</h4>
+                    <p class="text-slate-700">User engages in comprehensive red team (offensive) and blue team (defensive) security exercises.</p>
+                    <p class="mt-2 text-sm text-teal-500">➡️ Leads to: <a href="#node-BK" class="underline">BK (Attack/Defend All System Layers)</a></p>
+                </div>
+                <div id="node-BK" class="card border-teal-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-teal-600 mb-1">BK: 🚨 Attack/Defend All System Layers: Prompt, Code, Data, Infra</h4>
+                    <p class="text-slate-700">User develops strategies to attack and defend all layers of their AI systems, from prompts to infrastructure.</p>
+                    <p class="mt-2 text-sm text-teal-500">➡️ Leads to: <a href="#node-BL" class="underline">BL (Zero-Trust, Immutable Pipeline Protocols)</a></p>
+                </div>
+                <div id="node-BL" class="card border-teal-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-teal-600 mb-1">BL: 🛡️ Zero-Trust, Immutable Pipeline Protocols</h4>
+                    <p class="text-slate-700">User implements advanced security protocols like zero-trust architectures and immutable deployment pipelines.</p>
+                    <p class="mt-2 text-sm text-teal-500">➡️ Leads to: <a href="#node-BM" class="underline">BM (Syndicate Across Platforms)</a></p>
+                </div>
+                <div id="node-BM" class="card border-teal-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-teal-600 mb-1">BM: 🌐 Syndicate Across Platforms, APIs, Tools</h4>
+                    <p class="text-slate-700">User's expertise or tools become influential and are syndicated across various platforms, APIs, or toolsets.</p>
+                    <p class="mt-2 text-sm text-teal-500">➡️ Leads to: <a href="#node-BN" class="underline">BN (Mentor Community)</a></p>
+                </div>
+                <div id="node-BN" class="card border-teal-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-teal-600 mb-1">BN: 📚 Mentor Community, Publish Guides/Meta-Prompts</h4>
+                    <p class="text-slate-700">User gives back by mentoring others, publishing authoritative guides, or sharing advanced meta-prompts.</p>
+                    <p class="mt-2 text-sm text-teal-500">➡️ Leads to: <a href="#node-BO" class="underline">BO (Lead OpenAI/Core LLM Ecosystem Evolution)</a></p>
+                    <p class="mt-1 text-xs text-teal-500">Can be reached from: <a href="#node-BF" class="underline text-purple-500">BF (Evolve to AI Products)</a>, <a href="#DS11" class="underline text-red-500">DS11 (Rolling Forensics)</a>, <a href="#AL5" class="underline text-red-500">AL5 (Validate, Realign, Rebase)</a>, <a href="#VR4" class="underline text-red-500">VR4 (Rollback/Hotfix)</a>.</p>
+                </div>
+                <div id="node-BO" class="card border-teal-300 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-teal-600 mb-1">BO: 🏅 Lead OpenAI/Core LLM Ecosystem Evolution</h4>
+                    <p class="text-slate-700">User becomes a leading figure, contributing significantly to the evolution of the core LLM ecosystem.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="extras" class="mb-16 p-6 bg-slate-200 rounded-xl shadow-xl border-t-4 border-slate-500">
+            <h2 class="stage-title text-3xl font-semibold text-slate-700 mb-8 pb-2 border-b-2 border-slate-400">6. 🔄 Extras: Dead-Ends, Feedback, Alternate Paths</h2>
+            <div class="space-y-6">
+                 <div id="node-BP" class="card border-rose-400 bg-rose-50 p-5 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl text-rose-600 mb-1">BP: 🛑 Stagnate/Churn – Returns to B or Evolves</h4>
+                    <p class="text-slate-700">A point of stagnation or failure. The user might churn, revert to earlier stages of usage, or find a new path to evolve.</p>
+                    <p class="mt-2 text-sm text-rose-500">🔁 Returns to: <a href="#node-B" class="underline">B (Initial Usage Mode)</a> or requires a new approach.</p>
+                    <p class="mt-1 text-xs text-rose-500">This is a common outcome for many failure paths noted in the "Failure Modes" section.</p>
+                </div>
+                <p class="text-slate-600">This section highlights common points where users might get stuck or take alternative routes not explicitly part of the main progression. Many failure modes can lead to <a href="#node-BP" class="underline text-rose-500">BP (Stagnation)</a>.</p>
+            </div>
+        </section>
+
+
+        <section id="failure-modes" class="mt-16 p-6 bg-red-50 rounded-xl shadow-xl border-t-4 border-red-500">
+            <h2 class="stage-title text-3xl font-semibold text-red-700 mb-6 border-b-2 border-red-300 pb-2">⚠️ Failure Modes & Risk Patches</h2>
+            <p class="text-red-600 mb-8">This section details potential issues, risks, and how they might be addressed or lead to problems if unmanaged. Many unaddressed issues can lead to <a href="#node-BP" class="underline font-semibold">BP (Stagnate/Churn)</a>.</p>
+
+            <div class="grid md:grid-cols-2 gap-6">
+
+                <div class="p-4 bg-white border border-red-200 rounded-lg shadow-md">
+                    <h3 class="font-semibold text-xl text-red-600 mb-2">🧠 Prompt-Context Decay (CTX)</h3>
+                    <div id="CTX1" class="mb-2"><strong class="text-red-500">CTX1:</strong> Prompt-Context Decay. Triggered by: <a href="#node-Q" class="underline">Q (Organize Prompt Libraries)</a>.</div>
+                    <div id="CTX2" class="mb-2"><strong class="text-red-500">CTX2:</strong> Output Drift/Role Misalignment.</div>
+                    <div id="CTX3" class="mb-2"><strong class="text-red-500">CTX3:</strong> Misunderstood Instructions.</div>
+                    <div id="CTX4" class="mb-2"><strong class="text-red-500">CTX4 (Decision):</strong> Intervene?
+                        <ul class="list-disc list-inside text-sm ml-4">
+                            <li>"Re-prompt/Clarify" <span class="flow-arrow">➔</span> <a href="#node-Q" class="underline">Q</a></li>
+                            <li>"Ignore" <span class="flow-arrow">➔</span> <a href="#CTX5" class="underline">CTX5</a></li>
+                        </ul>
+                    </div>
+                    <div id="CTX5" class="mb-2"><strong class="text-red-500">CTX5:</strong> ⚠️ Accumulating Drift/Error. Leads to: <a href="#node-V" class="underline">V (Hit Capabilities Ceiling)</a> or <a href="#node-BP" class="underline">BP</a>.</div>
+                </div>
+
+                <div class="p-4 bg-white border border-red-200 rounded-lg shadow-md">
+                    <h3 class="font-semibold text-xl text-red-600 mb-2">⚡ Latent Bleed & System Interference (LB)</h3>
+                    <div id="LB1" class="mb-2"><strong class="text-red-500">LB1:</strong> Latent Prompt Bleed. Triggered by: <a href="#node-Q" class="underline">Q (Organize Prompt Libraries)</a>.</div>
+                    <div id="LB2" class="mb-2"><strong class="text-red-500">LB2:</strong> System Message Interference.</div>
+                    <div id="LB3" class="mb-2"><strong class="text-red-500">LB3:</strong> Multi-Turn Misalignment. Leads to: <a href="#CTX4" class="underline">CTX4 (Intervene?)</a>.</div>
+                </div>
+
+                <div class="p-4 bg-white border border-red-200 rounded-lg shadow-md">
+                    <h3 class="font-semibold text-xl text-red-600 mb-2">💸 Token Economics & Latency (TE)</h3>
+                    <div id="TE1" class="mb-2"><strong class="text-red-500">TE1:</strong> Token Usage Spike/Latency. Triggered by: <a href="#node-W" class="underline">W (Integrate Files, etc.)</a>.</div>
+                    <div id="TE2" class="mb-2"><strong class="text-red-500">TE2:</strong> Cost-Performance Inflection.</div>
+                    <div id="TE3" class="mb-2"><strong class="text-red-500">TE3 (Decision):</strong> Financial Kill-Switch?
+                        <ul class="list-disc list-inside text-sm ml-4">
+                            <li>"Trigger" <span class="flow-arrow">➔</span> <a href="#TE4" class="underline">TE4</a></li>
+                            <li>"Ignore" <span class="flow-arrow">➔</span> <a href="#TE5" class="underline">TE5</a></li>
+                        </ul>
+                    </div>
+                    <div id="TE4" class="mb-2"><strong class="text-red-500">TE4:</strong> ⛔ Auto-Halt / Spend Lock. Leads to: <a href="#node-BP" class="underline">BP</a>.</div>
+                    <div id="TE5" class="mb-2"><strong class="text-red-500">TE5:</strong> 🔥 Catastrophic API Overage. Leads to: <a href="#node-BP" class="underline">BP</a>.</div>
+                </div>
+
+                <div class="p-4 bg-white border border-red-200 rounded-lg shadow-md">
+                    <h3 class="font-semibold text-xl text-red-600 mb-2">🎭 Hallucination Management (HM)</h3>
+                    <div id="HM1" class="mb-2"><strong class="text-red-500">HM1:</strong> Hallucination Suspected. Triggered by: <a href="#node-Z" class="underline">Z (Analyze Output Bias/Error)</a>.</div>
+                    <div id="HM2" class="mb-2"><strong class="text-red-500">HM2:</strong> Output Validation Pipeline.</div>
+                    <div id="HM3" class="mb-2"><strong class="text-red-500">HM3 (Decision):</strong> Auto-Critique Enabled?
+                        <ul class="list-disc list-inside text-sm ml-4">
+                            <li>"Yes" <span class="flow-arrow">➔</span> <a href="#HM4" class="underline">HM4</a></li>
+                            <li>"No" <span class="flow-arrow">➔</span> <a href="#HM5" class="underline">HM5</a></li>
+                        </ul>
+                    </div>
+                    <div id="HM4" class="mb-2"><strong class="text-red-500">HM4:</strong> 🛡️ Sanitize/Filter Output. Leads to: <a href="#node-Y" class="underline">Y (Debug Output)</a>.</div>
+                    <div id="HM5" class="mb-2"><strong class="text-red-500">HM5:</strong> ⚠️ Propagate Invalid Result. Leads to: <a href="#node-V" class="underline">V (Hit Capabilities Ceiling)</a> or <a href="#node-BP" class="underline">BP</a>.</div>
+                </div>
+
+                <div class="p-4 bg-white border border-red-200 rounded-lg shadow-md">
+                    <h3 class="font-semibold text-xl text-red-600 mb-2">🔒 Deployment Security Vectors (DS)</h3>
+                    <div id="DS1" class="mb-2"><strong class="text-red-500">DS1:</strong> Persistent State Threat: Memory Poisoning. Triggered by: <a href="#node-AF" class="underline">AF (Test Prompt Security)</a>.</div>
+                    <div id="DS2" class="mb-2"><strong class="text-red-500">DS2:</strong> User Fingerprinting Leak.</div>
+                    <div id="DS3" class="mb-2"><strong class="text-red-500">DS3:</strong> Identity Leak in Multi-Agent Chat.</div>
+                    <div id="DS4" class="mb-2"><strong class="text-red-500">DS4 (Decision):</strong> Mitigate?
+                        <ul class="list-disc list-inside text-sm ml-4">
+                           <li>"Yes" <span class="flow-arrow">➔</span> <a href="#DS5" class="underline">DS5</a></li>
+                           <li>"No" <span class="flow-arrow">➔</span> <a href="#DS6" class="underline">DS6</a></li>
+                        </ul>
+                    </div>
+                    <div id="DS5" class="mb-2"><strong class="text-red-500">DS5:</strong> 🚨 Session Scrub, State Reboot. Leads to: <a href="#node-BP" class="underline">BP</a> (if disruptive).</div>
+                    <div id="DS6" class="mb-2"><strong class="text-red-500">DS6:</strong> ⚠️ Long-Term Vulnerability. Leads to: <a href="#node-V" class="underline">V</a> or <a href="#node-BP" class="underline">BP</a>.</div>
+
+                    <hr class="my-3 border-red-200">
+
+                    <div id="DS7" class="mb-2"><strong class="text-red-500">DS7:</strong> 🧑‍💻 Prompt-Stuffed Payload Injection. Triggered by: <a href="#node-AF" class="underline">AF (Test Prompt Security)</a>.</div>
+                    <div id="DS8" class="mb-2"><strong class="text-red-500">DS8:</strong> Audit/Validate Pre/Post-Deploy.</div>
+                    <div id="DS9" class="mb-2"><strong class="text-red-500">DS9 (Decision):</strong> Continuous Audit?
+                        <ul class="list-disc list-inside text-sm ml-4">
+                           <li>"No" <span class="flow-arrow">➔</span> <a href="#DS10" class="underline">DS10</a></li>
+                           <li>"Yes" <span class="flow-arrow">➔</span> <a href="#DS11" class="underline">DS11</a></li>
+                        </ul>
+                    </div>
+                    <div id="DS10" class="mb-2"><strong class="text-red-500">DS10:</strong> 🚨 Attack Window. Leads to: <a href="#node-BP" class="underline">BP</a>.</div>
+                    <div id="DS11" class="mb-2"><strong class="text-red-500">DS11:</strong> 📊 Rolling Forensics. Leads to: <a href="#node-BN" class="underline text-teal-500">BN (Mentor Community)</a>.</div>
+                </div>
+
+                <div class="p-4 bg-white border border-red-200 rounded-lg shadow-md">
+                    <h3 class="font-semibold text-xl text-red-600 mb-2">🧠 Cognitive Scalability Limits (CL)</h3>
+                    <div id="CL1" class="mb-2"><strong class="text-red-500">CL1:</strong> Prompt Complexity Ceiling. Triggered by: <a href="#node-AI" class="underline">AI (Chain Prompts)</a>.</div>
+                    <div id="CL2" class="mb-2"><strong class="text-red-500">CL2:</strong> User Tuning Saturation.</div>
+                    <div id="CL3" class="mb-2"><strong class="text-red-500">CL3 (Decision):</strong> Delegate/Automate?
+                         <ul class="list-disc list-inside text-sm ml-4">
+                           <li>"Yes" <span class="flow-arrow">➔</span> <a href="#node-AI" class="underline">AI (Chain Prompts)</a> (implying more advanced automation)</li>
+                           <li>"No" <span class="flow-arrow">➔</span> <a href="#node-BP" class="underline">BP</a></li>
+                        </ul>
+                    </div>
+                    <hr class="my-3 border-red-200">
+                    <div id="CL4" class="mb-2"><strong class="text-red-500">CL4:</strong> Async Agent Split/Delegation. Triggered by: <a href="#node-AI" class="underline">AI (Chain Prompts)</a>.</div>
+                    <div id="CL5" class="mb-2"><strong class="text-red-500">CL5:</strong> Execution Tree Bottleneck.</div>
+                    <div id="CL6" class="mb-2"><strong class="text-red-500">CL6:</strong> ⚠️ Coordination Failure. Leads to: <a href="#node-BP" class="underline">BP</a>.</div>
+                </div>
+
+                <div class="p-4 bg-white border border-red-200 rounded-lg shadow-md">
+                    <h3 class="font-semibold text-xl text-red-600 mb-2">🚨 Alignment & Goal Drift (AL)</h3>
+                    <div id="AL1" class="mb-2"><strong class="text-red-500">AL1:</strong> Agent Goal Drift. Triggered by: <a href="#node-AJ" class="underline">AJ (Implement Feedback Loops)</a>.</div>
+                    <div id="AL2" class="mb-2"><strong class="text-red-500">AL2:</strong> Feedback Loop Corruption.</div>
+                    <div id="AL3" class="mb-2"><strong class="text-red-500">AL3:</strong> Auto-Agent Mutation.</div>
+                    <div id="AL4" class="mb-2"><strong class="text-red-500">AL4 (Decision):</strong> Goal Alignment Audit?
+                        <ul class="list-disc list-inside text-sm ml-4">
+                           <li>"Yes" <span class="flow-arrow">➔</span> <a href="#AL5" class="underline">AL5</a></li>
+                           <li>"No" <span class="flow-arrow">➔</span> <a href="#AL6" class="underline">AL6</a></li>
+                        </ul>
+                    </div>
+                    <div id="AL5" class="mb-2"><strong class="text-red-500">AL5:</strong> 🛡️ Validate, Realign, Rebase. Leads to: <a href="#node-BN" class="underline text-teal-500">BN (Mentor Community)</a>.</div>
+                    <div id="AL6" class="mb-2"><strong class="text-red-500">AL6:</strong> ☠️ Systemic Failure Cascade. Leads to: <a href="#node-BP" class="underline">BP</a>.</div>
+                </div>
+
+                <div class="p-4 bg-white border border-red-200 rounded-lg shadow-md">
+                    <h3 class="font-semibold text-xl text-red-600 mb-2">📅 Versioning & Reproducibility Gaps (VR)</h3>
+                    <div id="VR1" class="mb-2"><strong class="text-red-500">VR1:</strong> Prompt Version Drift/Infra Update. Triggered by: <a href="#node-AJ" class="underline">AJ (Implement Feedback Loops)</a>.</div>
+                    <div id="VR2" class="mb-2"><strong class="text-red-500">VR2:</strong> Non-Reproducible Results.</div>
+                    <div id="VR3" class="mb-2"><strong class="text-red-500">VR3:</strong> Differential Trace Log.</div>
+                    <div id="VR4" class="mb-2"><strong class="text-red-500">VR4:</strong> ⏪ Rollback/Hotfix. Leads to: <a href="#node-BN" class="underline text-teal-500">BN (Mentor Community)</a>.</div>
+                    <hr class="my-3 border-red-200">
+                    <div id="VR5" class="mb-2"><strong class="text-red-500">VR5:</strong> ❌ No Prompt Hash/Versioning.</div>
+                    <div id="VR6" class="mb-2"><strong class="text-red-500">VR6:</strong> 🕳️ Silent Failure. Leads to: <a href="#node-BP" class="underline">BP</a>.</div>
+                </div>
+
+                <div class="p-4 bg-white border border-red-200 rounded-lg shadow-md">
+                    <h3 class="font-semibold text-xl text-red-600 mb-2">📏 Metrics/Evaluation Loop Gaps (ME)</h3>
+                    <div id="ME1" class="mb-2"><strong class="text-red-500">ME1:</strong> No Explicit Metrics: Precision, Recall, Cost, Latency. Triggered by: <a href="#node-Q" class="underline">Q (Organize Prompt Libraries)</a>.</div>
+                    <div id="ME2" class="mb-2"><strong class="text-red-500">ME2:</strong> ⚠️ Untracked Entropy / Cognitive Load.</div>
+                    <div id="ME3" class="mb-2"><strong class="text-red-500">ME3:</strong> 🧪 No Formal Feedback / Self-Critique Injection. Leads to: <a href="#node-BP" class="underline">BP</a>.</div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center mt-16 py-8 text-slate-500">
+            <p>Infographic based on user-provided Mermaid flowchart data.</p>
+            <p>Designed to illustrate the complex journey of mastering prompt engineering.</p>
+        </footer>
+
+    </div>
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
